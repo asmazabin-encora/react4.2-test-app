@@ -1,0 +1,20 @@
+tr:nth-child(even) {background-color: #f2f2f2;}
+th {
+  background-color: #64388a;
+  color: white;
+  height: 50px;
+  width: 100px;
+}
+td:first-child {
+  text-align: center;
+}
+tr > td:last-child {
+  text-align: center;
+}
+.Button {
+  color: #64388a;
+  border-radius: 10px;
+}
+h1.no-records{
+  color: red;
+}

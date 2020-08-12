@@ -26,7 +26,7 @@ In the project directory, you can run(back-end):
 It will run on [http://localhost:5000](http://localhost:5000).
 
 ### `npm run api:test`
-This command will Launches the test runner.
+This command will Launches the test runner.<br />
 ![Backend Test cases result](Backend-test-cases.png?raw=true "Backend Test cases result")
 
 ### `npm build`

@@ -1,0 +1,28 @@
+.input {
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	.validation-error {
+		margin-left: '2.5rem';
+		color:'red';
+	}
+}
+
+.label {
+	font-weight: bold;
+	display: block;
+	margin-bottom: 8px;
+}
+.input-element {
+	outline: none;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	font: inherit;
+	padding: 6px 10px;
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+}
+.invalid {
+	border: 1px solid red;
+}

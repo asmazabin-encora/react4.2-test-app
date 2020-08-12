@@ -1,0 +1,13 @@
+.Button {
+    cursor: pointer;
+    font: inherit;
+    padding: 10px;
+    margin: 10px;
+    font-weight: bold;
+    color: #64388a;
+    border-radius: 3px;
+}
+
+button:hover {
+    text-decoration: underline;
+}
