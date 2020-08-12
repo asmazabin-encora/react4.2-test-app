@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { GET_RECORDS, UPDATE_RECORDS } from '../actions';
+import { GET_RECORDS, UPDATE_RECORDS, FETCHING_ERROR } from '../actions';
  
 const initialState = {
     listData : [],
@@ -13,17 +13,23 @@ function getList(state = initialState, action) {
                 ...state,
                 getlistData: action.listData
             }
+
         case UPDATE_RECORDS:
-            let updateData = action.updateData;
+            const updateData = action.updateData;
             let listData = [...state.getlistData];
             listData[updateData.id - 1] = updateData;
-            let modifiedData = { ...state, listData };
+            const modifiedData = { ...state, listData };
             return {
                 ...state,
                 modifiedData: modifiedData.listData
             }
-            default:
-                return state;
+
+        case FETCHING_ERROR:
+            return action.error;
+
+        default:
+            return state;
+
     }
 }
 

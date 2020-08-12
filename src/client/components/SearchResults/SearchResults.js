@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '../UI/Button/Button';
 import { Table } from 'reactstrap';
 import './SearchResults.scss';
@@ -6,16 +7,11 @@ import './SearchResults.scss';
 /**
  * This component will display the searched items
  */
-export default function searchResults({ listOfItems, editRecord }) {
+const searchResults = props => {
   let fetchedItems = [];
   let noItems = '';
-  if (!listOfItems.length) {
-    noItems = <div><h1 className='no-records'>No Records found</h1></div>;
-  } else {
-    fetchedItems = listOfItems.map(item => showResult(item));
-  }
 
-  function showResult({ id, title, body }) {
+  const showResult = ({ id, title, body }) =>  {
     return (
       <tr key={id} data-content={title}>
         <td>{id}</td>
@@ -27,7 +23,7 @@ export default function searchResults({ listOfItems, editRecord }) {
               color='info'
               name='edit'
               clicked={() => {
-                editRecord(id);
+                props.editRecord(id);
               }}
             >
               Update
@@ -38,6 +34,12 @@ export default function searchResults({ listOfItems, editRecord }) {
         </td>
       </tr>
     );
+  }
+
+  if (!props.listOfItems.length) {
+    noItems = <div><h1 className='no-records'>No Records found</h1></div>;
+  } else {
+    fetchedItems = props.listOfItems.map(item => showResult(item));
   }
 
   return (
@@ -57,3 +59,16 @@ export default function searchResults({ listOfItems, editRecord }) {
     </div>
   );
 }
+searchResults.propTypes = {
+  editRecord: PropTypes.func,
+  listOfItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      userId: PropTypes.number,
+      title: PropTypes.string,
+      body: PropTypes.string
+    })
+  )
+};
+
+export default searchResults;

@@ -58,10 +58,9 @@ class Home extends Component {
   }
 
   updateItem() {
-    let allRecords = arguments[0];
+    const allRecords = arguments[0];
     this.props.updateData(allRecords);
     this.setState({
-      ...this.state,
       editItem: false,
       searchItem: []
     });
@@ -69,7 +68,6 @@ class Home extends Component {
 
   cancelEdit = () => {
     this.setState({
-      ...this.state,
       editItem: false,
       searchItem: [...this.props.allRecords]
     });

@@ -33,9 +33,9 @@ input.propTypes = {
 	touched: PropTypes.bool,
 	elementConfig: PropTypes.shape({
 		type: PropTypes.string,
-		placeholder: PropTypes.string
+		placeholder: PropTypes.string,
+		name: PropTypes.string
 	}),
-	placeholder: PropTypes.string,
 	errorMessage: PropTypes.string
 }
 

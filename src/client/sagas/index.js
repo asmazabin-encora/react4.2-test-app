@@ -15,8 +15,12 @@ const getListData = async () => {
 }
 
 export function* getAllData() {
-  const listData = yield call(getListData)
-  yield put(actions.recordFetched(listData))
+  try {
+    const listData = yield call(getListData)
+    yield put(actions.recordFetched(listData))
+  } catch(error) {
+    yield put(actions.fetchingError(error));
+  }
 }
 
 export function* watchGetData() {

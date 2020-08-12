@@ -44,10 +44,10 @@ class UpdateRecord extends Component {
 
   componentDidMount() {
     let allRecords = { ...this.props.allRecords };
-    let fields = [...this.state.allFields];
+    const fields = [...this.state.allFields];
     allRecords = fields.map(item => {
-      let fieldName = item.elementConfig.name.toLowerCase();
-      let listKeys = Object.keys(allRecords);
+      const fieldName = item.elementConfig.name.toLowerCase();
+      const listKeys = Object.keys(allRecords);
       let updatedField = {};
       if (listKeys.includes(fieldName)) {
         item.value = allRecords[fieldName];
@@ -57,7 +57,6 @@ class UpdateRecord extends Component {
     });
 
     this.setState({
-      ...this.state,
       allFields: [...allRecords]
     });
   }
@@ -65,14 +64,13 @@ class UpdateRecord extends Component {
    * This function will handle the change event of inputs(Title and Description)
    */
   changeHandler(event, i) {
-    let value = event.target.value;
-    let fields = [...this.state.allFields];
-    let inValid = Boolean(fields[i].value.trim().length);
+    const value = event.target.value;
+    const fields = [...this.state.allFields];
+    const inValid = Boolean(fields[i].value.trim().length);
     fields[i].value = value;
     fields[i].inValid = !inValid;
     fields[i].touched = true;
     this.setState({
-      ...this.state,
       isValid: inValid,
       allFields: [...fields]
     });
@@ -83,21 +81,21 @@ class UpdateRecord extends Component {
    */
   saveChanges() {
     let fields = [...this.state.allFields];
+    const { allRecords } = this.props;
     fields = fields.reduce((field, item) => {
       const fieldName = item.elementConfig.name.toLowerCase();
       field[fieldName] = item.value;
       return field;
     }, {});
     let updatedRecord = {
-      ...this.props.allRecords,
+      ...allRecords,
       ...fields
-    };
+      };
     this.props.updatedItems(updatedRecord);
   }
 
   render() {
-    const allFields = [...this.state.allFields];
-    const { isValid } = this.state;
+    const { isValid, allFields } = this.state;
     return (
       <form className='editModal' onSubmit={event => event.preventDefault()}>
         <h3>UPDATE RECORD</h3>

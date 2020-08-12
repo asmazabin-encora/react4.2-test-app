@@ -7,10 +7,10 @@ import './SearchRecord.scss';
  */
 const SearchRecord = props => {
   // This function will search the title from the list of records
-  function findSearchedItem(event) {
-    let value = event.target.value;
-    let data = props.searchItem;
-    let result = data.filter(list => list.title.includes(value));
+  const findSearchedItem = event => {
+    const value = event.target.value;
+    const data = props.searchItem;
+    const result = data.filter(list => list.title.includes(value));
     if (!value.length) return props.allItems([...data], false);
     props.allItems(result, value.length);
   }
