@@ -10,7 +10,9 @@ Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### Application snapshots
+Home Page <br />
 ![Home Page](Home-page.png?raw=true "Home Page")
+Edit Modal <br />
 ![Edit Modal](Modal.png?raw=true "Edit Modal")
 
 The page will reload if you make edits.<br />
