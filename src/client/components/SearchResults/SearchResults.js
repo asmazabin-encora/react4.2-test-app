@@ -21,7 +21,7 @@ const searchResults = props => {
           {id ? (
             <Button
               color='info'
-              name='edit'
+              name='Update'
               clicked={() => {
                 props.editRecord(id);
               }}
