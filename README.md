@@ -14,8 +14,8 @@ Home Page <br />
 ![Home Page](Home-page.png?raw=true "Home Page")
 Edit Modal <br />
 ![Edit Modal](Modal.png?raw=true "Edit Modal")
-
-The page will reload if you make edits.<br />
+Edit Modal Validation <br />
+![Edit Modal Validation](modal-input-validation.png?raw=true "Edit Modal Validation")
 
 ### `npm test`
 
