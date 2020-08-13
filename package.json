@@ -19,7 +19,8 @@
     "react-scripts": "3.4.1",
     "reactstrap": "^8.5.1",
     "redux": "^4.0.5",
-    "redux-saga": "^1.1.3"
+    "redux-saga": "^1.1.3",
+    "redux-saga-tester": "^1.0.864"
   },
   "scripts": {
     "start": "react-scripts start",
