@@ -15,4 +15,16 @@ describe('<SearchResults />', () => {
       expect(post.container).toBeTruthy();
     });
 
+    it('Update Button click successfully without error', () => {
+      const editRecord = jest.fn();
+      const { getByRole } = render(
+        <TestProvider>
+          <SearchResults listOfItems={[{ id: 1, title: 'Record Title', body: 'Record Body' }]} editRecord={editRecord} />
+        </TestProvider>
+      );
+      const updateButton = getByRole('button', { name: /Update/i });
+      fireEvent.click(updateButton);
+      expect(editRecord).toHaveBeenCalledTimes(1);
+    });
+
 });

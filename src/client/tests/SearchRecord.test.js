@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import SearchRecord from '../components/SearchRecord/SearchRecord';
+import mockData from '../store/mockData';
 
 describe('<SearchRecord />', () => {
 
@@ -10,14 +11,15 @@ describe('<SearchRecord />', () => {
     });
 
 
-    it('SearchBar - Input ', () => {
+    it('SearchBar - Input change event ', () => {
         const { getByRole } = render(
-            <SearchRecord />
+            <SearchRecord searchItem={mockData} allItems={() => {}} />
         );
-        const editInput = getByRole('Input');
-        expect(editInput.value).toBeTruthy();
+        const editInput = getByRole('textbox');
+        expect(editInput.value).toMatch('');
         fireEvent.change(editInput, {
-          target: { value: 'New Post Title' }
+          target: { value: 'New Record Title' }
         });
+        expect(editInput.value).toMatch('New Record Title');
     });
 });
