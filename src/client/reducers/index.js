@@ -3,7 +3,8 @@ import { GET_RECORDS, UPDATE_RECORDS, FETCHING_ERROR } from '../actions';
  
 const initialState = {
     listData : [],
-    selectedData: ''
+    selectedData: '',
+    getlistData : []
 };
 
 function getList(state = initialState, action) {
@@ -16,7 +17,7 @@ function getList(state = initialState, action) {
 
         case UPDATE_RECORDS:
             const updateData = action.updateData;
-            let listData = [...state.getlistData];
+            let listData = state.getlistData;
             listData[updateData.id - 1] = updateData;
             const modifiedData = { ...state, listData };
             return {

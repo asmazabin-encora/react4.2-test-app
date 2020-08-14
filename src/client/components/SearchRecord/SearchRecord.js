@@ -10,8 +10,8 @@ const SearchRecord = props => {
   const findSearchedItem = event => {
     const value = event.target.value;
     const data = props.searchItem;
-    const result = data.filter(list => list.title.includes(value));
-    if (!value.length) return props.allItems([...data], false);
+    const result = data && data.length && data.filter(list => list.title.includes(value));
+    if (value && !value.length) return props.allItems([...data], false);
     props.allItems(result, value.length);
   }
 
